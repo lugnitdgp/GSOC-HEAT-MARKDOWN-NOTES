@@ -1,7 +1,8 @@
 import React from "react";
 import { FaPenAlt } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import { GrLogout} from 'react-icons/gr'
+import { GrLogout} from 'react-icons/gr';
+
 
 import ReactMarkdown from "react-markdown";
 
@@ -25,6 +26,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
 
   return (
     <div className="app-main">
+      
       <div className="app-main-header">
       <h1>
         <IconContext.Provider value={{style:{fontSize:'40px', border:'5px'}}}>
@@ -37,6 +39,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
         </button>
       </div>
       <div className="app-main-note-edit">
+      
         <input
           type="text"
           id="title"

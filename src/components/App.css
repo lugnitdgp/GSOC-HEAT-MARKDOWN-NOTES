@@ -13,7 +13,12 @@ body,
   height: 100vh;
   overflow: hidden;
   font-size: 16px;
-  background: url(https://wallpaperaccess.com/full/931263.jpg);
+  background-image: url(./vector.png), url(./vector2.png);
+  background-position: left,right;
+  background-repeat: no-repeat,no-repeat;
+  background-size: 900px,900px;
+  
+  
 }
 
 button {
@@ -59,7 +64,7 @@ button:hover {
 .app-sidebar-header {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(11, 61, 126, 0.925);
+  background-color: rgba(63, 19, 165, 0.925);
   font-size: 30px;
   color: rgb(241, 245, 248);
   font-weight: bold;
@@ -79,7 +84,7 @@ button:hover {
 .app-sidebar-notes {
   height: calc(100vh - 78px);
   overflow-y: scroll;
-  background-color:rgba(241, 245, 250, 0.596);
+  background-color:white;
   border: blue;
   padding: 10px;
   
@@ -90,13 +95,13 @@ button:hover {
 .app-sidebar-note {
   padding: 20px;
   cursor: pointer;
-  border: 4px ;
-  border-radius: 20px;
-  border-style:outset;
-  
+  border: 10px ;
+  border-radius: 30px;
+  border-style:initial;
+  border-color: rgba(44, 44, 44, 0.938);
   
   margin: 20px;
-  background-color: rgb(223, 224, 224);
+  background-color: rgb(236, 234, 234);
   
   
 
@@ -106,7 +111,8 @@ button:hover {
   display: flex;
   justify-content:space-between;
   font-size: 30px;
-  color: rgba(3, 57, 128, 0.925);
+  color: rgba(2, 0, 14, 0.925);
+  flex-direction:row;
   
   
   
@@ -120,36 +126,47 @@ button:hover {
 }
 .app-sidebar-note p {
   margin: 10px 0;
-  color: rgb(8, 22, 58);
+  color: rgb(1, 6, 19);
   border-bottom: 20px;
 }
 .app-sidebar-note small {
   display: block;
-  color: rgb(3, 9, 65);
+  color: rgb(0, 2, 12);
   border-bottom: 20px;
 }
 
 .app-sidebar-note:hover {
-  background: rgb(215, 229, 241);
+  background: rgb(227, 215, 241);
 }
-.app-sidebar-note.active,
+.app-sidebar-note.active {
+  background: rgba(94, 28, 248, 0.568);
+  color: rgb(248, 248, 250);
+  font-weight: bolder;
+}
 .app-sidebar-note.active small {
-  background: rgb(202, 226, 247);
-  color: rgb(8, 12, 17);
+
+  color: rgb(239, 239, 245);
+  font-weight: bolder;
+}
+.app-sidebar-note.active title{
+
+  color: rgb(239, 239, 245);
   font-weight: bolder;
 }
 
 /* NOTE EDITOR/PREVIEW (MAIN) STYLES */
 
 .app-main {
-  width: 70%;
-  height: 100vh;
+  width:70%;
+  height:100vh;
+  
+  
 }
 .app-main-header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color:rgba(238, 243, 248, 0.596);
+  background-color:rgb(243, 231, 250);
   font-size: 25px;
   height: 10vh;
   border: 5px;
@@ -162,7 +179,7 @@ button:hover {
 .app-main-header h1 {
   margin: 0;
   font-size: 55px;
-  color:rgba(11, 61, 126, 0.925) ;
+  color:rgba(64, 38, 179, 0.925) ;
   font-weight: bold;
 } 
 
@@ -173,7 +190,9 @@ button:hover {
 }
 .app-main-note-edit,
 .app-main-note-preview {
-  height: 47vh;
+  
+  height:47vh;
+  
   
   
 }
@@ -183,14 +202,16 @@ button:hover {
   height: 100vh;
   line-height: 100vh;
   text-align: center;
-  font-size: 20px;
-  color: rgb(153, 153, 153);
+  font-size: 55px;
+  color: rgb(0, 0, 0);
 }
 
 /* Editing */
 .app-main-note-edit {
   padding: 25px;
-  background-color:rgba(235, 241, 247, 0.788);
+  background-color: white;
+  
+  
  
   
   
@@ -206,12 +227,13 @@ textarea {
   resize: none;
   font-size: 20px;
   font-family: inherit;
-  background-color:rgba(223, 224, 224, 0.541);
+  background-color:white;
+  
   color: black;
   border: 3px;
   font-weight: 900;
   border-radius: 15px;
-  border-style: inset;
+  border-style: none;
   
   
 }
@@ -220,19 +242,28 @@ textarea {
   font-size: 2rem;
   border: 3px;
   border-radius: 15px;
-  border-style: groove;
+  border-style: none;
   color:black ;
   
+}
+.app-main-note-edit textarea{
+  background-image: url('./vector5.png');
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size: 500px;
+  background-position-x: 800px;
+
+
 }
 
 /* Preview */
 .app-main-note-preview {
   border-top: 1px solid ;
-  color: rgba(11, 61, 126, 0.925);
+  color: rgba(73, 60, 146, 0.925);
   border: 3px;
   border-radius: 15px;
-  background-color: rgba(225, 233, 245, 0.637);
-  border-style:ridge;
+  background-color: whitesmoke;
+  border-style:none;
   overflow-y: scroll;
   
 
@@ -256,6 +287,11 @@ textarea {
   font-weight: 800;
   
   
+}
+.w-100-btn {
+  background-color: black !important;
+
+
 }
 
 @media only screen and (max-width: 400px){

@@ -5,35 +5,46 @@ import "./App.css";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
 import {  useHistory } from "react-router-dom";
+import { db } from "../firebase";
+import { GrDocumentNotes } from "react-icons/gr";
+import firebase from '../firebase';
 
 
  function Dashboard() {
-  const [notes, setNotes] = useState(
-    localStorage.notes ? JSON.parse(localStorage.notes) : []
-  );
-  const [activeNote, setActiveNote] = useState(false);
+    
 
-  useEffect(() => {
-    localStorage.setItem("notes", JSON.stringify(notes));
-  }, [notes]);
+
+const [notes, setNotes] = useState([]);
+
+
+  
+ 
+ const [activeNote, setActiveNote] = useState(false);
+ 
+ 
+  
 
   const onAddNote = () => {
-    const newNote = {
-      id: uuid(),
-      title: "Type the Title....",
-      body: "",
-      lastModified: Date.now(),
-    };
-
-    setNotes([newNote, ...notes]);
-    setActiveNote(newNote.id);
+        
+      
+        const newNote={
+        id: uuid(),
+        title: "Type the Title....",
+        body: "",
+        lastModified: Date.now(),
+ 
   };
-
+    setNotes([newNote,... notes]);
+    setActiveNote(newNote.id);
+    
+  };
+  
   const onDeleteNote = (noteId) => {
     setNotes(notes.filter(({ id }) => id !== noteId));
   };
 
   const onUpdateNote = (updatedNote) => {
+    
     const updatedNotesArr = notes.map((note) => {
       if (note.id === updatedNote.id) {
         return updatedNote;
@@ -45,6 +56,7 @@ import {  useHistory } from "react-router-dom";
   };
 
   const getActiveNote = () => {
+    
     return notes.find(({ id }) => id === activeNote);
   };
 

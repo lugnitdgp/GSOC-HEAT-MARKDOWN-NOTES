@@ -10,7 +10,7 @@ import PrivateRoute from "./PrivateRoute"
 
 
 function App() {
-  return (
+ return (
     <>
       
         <Router>
@@ -28,8 +28,9 @@ function App() {
       
     
 
-  )
+ )
 }
+
 
 export default App
 

@@ -10,6 +10,8 @@ const Sidebar = ({
     onDeleteNote,
     activeNote,
     setActiveNote,
+    currentuser,
+    setCurrentUser,
   }) => {
     const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified);
   

@@ -3,6 +3,7 @@ import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 
+
  function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -10,6 +11,7 @@ import { Link, useHistory } from "react-router-dom"
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+  
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -28,6 +30,7 @@ import { Link, useHistory } from "react-router-dom"
 
   return (
     <>
+    
     <Container className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}>
         <div className="w-100" style={{ maxWidth: "400px" }}>
@@ -46,7 +49,7 @@ import { Link, useHistory } from "react-router-dom"
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <br/>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100" type="submit" >
               Log In
             </Button>
           </Form>
