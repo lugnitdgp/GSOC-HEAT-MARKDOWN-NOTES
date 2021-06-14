@@ -6,6 +6,7 @@ import {IconContext} from "react-icons";
 
 const Sidebar = ({
     notes,
+    
     onAddNote,
     onDeleteNote,
     activeNote,

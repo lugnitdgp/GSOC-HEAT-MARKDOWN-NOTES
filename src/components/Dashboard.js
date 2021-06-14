@@ -15,6 +15,22 @@ import firebase from '../firebase';
 
 
 const [notes, setNotes] = useState([]);
+  useEffect(()=> {
+  firebase
+ .firestore()
+  .collection('notes')
+  .onSnapshot(snapshot=> {
+    const notes = snapshot.docs.map(doc=> ({
+      id: doc.id,
+     ... doc.data(),
+     lastModified: Date.now(),
+    }))
+    
+    setNotes(notes)
+  })
+},[])
+ 
+
 
 
   
@@ -24,22 +40,37 @@ const [notes, setNotes] = useState([]);
  
   
 
-  const onAddNote = () => {
-        
-      
-        const newNote={
-        id: uuid(),
-        title: "Type the Title....",
-        body: "",
-        lastModified: Date.now(),
+ //const onAddNote = (newNote) => {     
+       // firebase
+        //.firestore()
+        //.collection("notes")
+        //.add({
+        //id: uuid(),
+        //title:(activeNote.title),
+       //body: (activeNote.body),
+        //lastModified: Date.now(),
  
-  };
+
+        
+        
+ 
+  //});
+
+ const onAddNote=() => {
+   const newNote={
+     
+     id: uuid(),
+     title: "Type the title here....",
+     body: "",
+     lastModified: Date.now(),
+     
+   };
+ 
     setNotes([newNote,... notes]);
     setActiveNote(newNote.id);
-    
   };
-  
-  const onDeleteNote = (noteId) => {
+
+   const onDeleteNote = (noteId) => {
     setNotes(notes.filter(({ id }) => id !== noteId));
   };
 
@@ -88,7 +119,7 @@ const [notes, setNotes] = useState([]);
   );
 
   
-}
+};
 
 
 

@@ -49,7 +49,7 @@ button:hover {
 }
 
 .Dashboard{
-  display: flex;
+  display:flex;
   
 }
 
@@ -76,7 +76,7 @@ button:hover {
 }
 .app-sidebar-header h1 {
   margin: 0;
-  font-size: 55px;
+  font-size: 45px;
   font-weight: bolder;
   padding: 25px;
 }
@@ -159,6 +159,8 @@ button:hover {
 .app-main {
   width:70%;
   height:100vh;
+  float: right;
+  
   
   
 }
@@ -178,7 +180,7 @@ button:hover {
 }
 .app-main-header h1 {
   margin: 0;
-  font-size: 55px;
+  font-size: 45px;
   color:rgba(64, 38, 179, 0.925) ;
   font-weight: bold;
 } 
@@ -188,10 +190,17 @@ button:hover {
 .app-main-header button {
   padding: 5px;
 }
+.wrapper{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
 .app-main-note-edit,
 .app-main-note-preview {
   
-  height:47vh;
+  height:100%;
+  width: 60%;
+  margin: 0 auto;
   
   
   
@@ -210,7 +219,8 @@ button:hover {
 .app-main-note-edit {
   padding: 25px;
   background-color: white;
-  
+  height: 100%;
+  width: 50%;
   
  
   
@@ -221,8 +231,8 @@ button:hover {
 textarea {
   display: block;
   margin-bottom: 20px;
-  width: 100%;
-  height: calc(48vh - 130px);
+  
+  
   padding: 10px;
   resize: none;
   font-size: 20px;
@@ -238,6 +248,7 @@ textarea {
   
 }
 .app-main-note-edit input {
+  width: 100%;
   height: 48px;
   font-size: 2rem;
   border: 3px;
@@ -245,19 +256,25 @@ textarea {
   border-style: none;
   color:black ;
   
+  
 }
 .app-main-note-edit textarea{
-  background-image: url('./vector5.png');
+  height: 100%;
+  width: 100%;
+  background-image: url('./vector.png');
   background-repeat:no-repeat;
-  background-position:right;
+  background-position:top;
   background-size: 500px;
-  background-position-x: 800px;
-
+  background-position-x:100px;
+  background-position-y: 100px;
+  float: left;
 
 }
 
 /* Preview */
 .app-main-note-preview {
+  height: 100%;
+  width: 50%;
   border-top: 1px solid ;
   color: rgba(73, 60, 146, 0.925);
   border: 3px;
@@ -265,6 +282,7 @@ textarea {
   background-color: whitesmoke;
   border-style:none;
   overflow-y: scroll;
+  float: right;
   
 
   
@@ -274,6 +292,10 @@ textarea {
 .preview-title {
   padding: 25px 25px 25px 25px;
   margin: 0px;
+  width: 100%;
+  height: 10%;
+  float: right;
+
   
   
   
@@ -285,6 +307,15 @@ textarea {
   font-size: 1rem;
   line-height: 2rem;
   font-weight: 800;
+  height: 100%;
+  width: 100%;
+  float: right;
+  background-image: url('./vector3.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: 500px;
+  background-position-x: 100px;
+  background-position-y: 100px;
   
   
 }

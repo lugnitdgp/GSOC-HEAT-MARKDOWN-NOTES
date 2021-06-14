@@ -13,6 +13,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
   
   const onEditField = (field, value) => {
     onUpdateNote({
+     
       ...activeNote,
       [field]: value,
       lastModified: Date.now(),
@@ -38,6 +39,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
         <IconContext.Provider value={{style:{fontSize:'40px',color: 'Black'}}}><GrLogout/></IconContext.Provider>
         </button>
       </div>
+      <div className="wrapper">
       <div className="app-main-note-edit">
       
         <input
@@ -61,6 +63,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
         <ReactMarkdown className="markdown-preview">
           {activeNote.body}
         </ReactMarkdown>
+      </div>
       </div>
     </div>
   );
