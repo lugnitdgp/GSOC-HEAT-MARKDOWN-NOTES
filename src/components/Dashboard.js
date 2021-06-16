@@ -24,6 +24,8 @@ const [notes, setNotes] = useState([]);
       id: doc.id,
      ... doc.data(),
      lastModified: Date.now(),
+     
+     
     }))
     
     setNotes(notes)
@@ -38,40 +40,63 @@ const [notes, setNotes] = useState([]);
  const [activeNote, setActiveNote] = useState(false);
  
  
+ 
+
+  const onAddNote = () => { 
+  
+  const newNote = {    
+  id: uuid(),
+  title:"Type the title here....",
+  body: "",
+  lastModified: Date.now(),
+
+        
+        
+        
+ 
+  };
+  
+  setNotes([newNote,... notes]);
+  setActiveNote(newNote.id);
+  
+  
+  firebase
+  .firestore()
+  .collection("notes")
+  .add({
+    id: newNote.id,
+    title: "type the title here",
+    body: "",
+    lastModified: Date.now(),
+
+  })
+  setNotes([newNote,... notes]);
+  setActiveNote(newNote.id);
+  
+  
   
 
- //const onAddNote = (newNote) => {     
-       // firebase
-        //.firestore()
-        //.collection("notes")
-        //.add({
-        //id: uuid(),
-        //title:(activeNote.title),
-       //body: (activeNote.body),
-        //lastModified: Date.now(),
- 
-
-        
-        
- 
-  //});
-
- const onAddNote=() => {
-   const newNote={
+        //  const onAddNote=() => {
+        //  const newNote={
      
-     id: uuid(),
-     title: "Type the title here....",
-     body: "",
-     lastModified: Date.now(),
+        //  id: uuid(),
+        //   title: "Type the title here....",
+        // body: "",
+        //   lastModified: Date.now(),
      
-   };
+         //};
  
-    setNotes([newNote,... notes]);
-    setActiveNote(newNote.id);
+    
   };
-
+  
    const onDeleteNote = (noteId) => {
     setNotes(notes.filter(({ id }) => id !== noteId));
+    firebase
+    .firestore()
+    .collection("notes")
+    .doc(noteId)
+    .delete()
+    
   };
 
   const onUpdateNote = (updatedNote) => {
@@ -79,11 +104,27 @@ const [notes, setNotes] = useState([]);
     const updatedNotesArr = notes.map((note) => {
       if (note.id === updatedNote.id) {
         return updatedNote;
+        
       }
 
       return note;
+      
+
     });
+    
+
     setNotes(updatedNotesArr);
+    // console.log(updatedNote);
+    // firebase
+    //   .firestore()
+    //   .collection("notes")
+    //   .doc(updatedNote.id)
+    //   .update({
+    //     title:updatedNote.title,
+    //     body: updatedNote.body,
+    //     lastModified:updatedNote.lastModified,
+    //   });
+    
   };
 
   const getActiveNote = () => {

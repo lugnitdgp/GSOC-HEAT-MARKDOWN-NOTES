@@ -2,6 +2,8 @@ import React from "react";
 import { FaPenAlt } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { GrLogout} from 'react-icons/gr';
+import ImageUpload from "./ImageUpload";
+
 
 
 import ReactMarkdown from "react-markdown";
@@ -14,10 +16,12 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
   const onEditField = (field, value) => {
     onUpdateNote({
      
+     
       ...activeNote,
       [field]: value,
       lastModified: Date.now(),
     });
+   
   };
 
   if (!activeNote) return <div className="no-active-note">No Active Note</div>;
@@ -41,7 +45,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
       </div>
       <div className="wrapper">
       <div className="app-main-note-edit">
-      
+        
         <input
           type="text"
           id="title"
@@ -54,8 +58,13 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
           id="body"
           placeholder="Write your note here..."
           value={activeNote.body}
-          onChange={(e) => onEditField("body", e.target.value)}
-        />
+          onChange={(e) => onEditField("body", e.target.value)}>
+          </textarea>
+          <ImageUpload/>
+          
+         
+          
+          
       </div>
       <div className="app-main-note-preview">
         

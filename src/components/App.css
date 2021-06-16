@@ -259,7 +259,7 @@ textarea {
   
 }
 .app-main-note-edit textarea{
-  height: 100%;
+  height: 550px;
   width: 100%;
   background-image: url('./vector.png');
   background-repeat:no-repeat;
@@ -270,6 +270,46 @@ textarea {
   float: left;
 
 }
+.app-main-note-edit input {
+  width: 100%;
+  height: 48px;
+  font-size: 2rem;
+  border: 3px;
+  border-radius: 15px;
+  border-style: none;
+  color:black ;
+}
+.app-main-note-edit button{
+  border: 20px;
+  background-color: black;
+}
+.filehandle{
+  height: 100px ;
+  width: 100%;
+  
+}
+.filehandle input{
+  width: 100%;
+  height: 50%;
+  font-size: 25px;
+  border: 3px;
+  border-radius: 20px;
+  border-color: black;
+  float: right;
+}
+.filehandle button{
+  border: 3px;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(94, 28, 248, 0.568);
+  color: rgb(2, 2, 27);
+  display: flex;
+  float: right;
+}
+
+
+
 
 /* Preview */
 .app-main-note-preview {
@@ -282,6 +322,7 @@ textarea {
   background-color: whitesmoke;
   border-style:none;
   overflow-y: scroll;
+  overflow-x: scroll;
   float: right;
   
 
