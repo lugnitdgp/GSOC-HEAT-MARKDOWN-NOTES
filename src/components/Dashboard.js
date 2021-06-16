@@ -23,7 +23,7 @@ const [notes, setNotes] = useState([]);
     const notes = snapshot.docs.map(doc=> ({
       id: doc.id,
      ... doc.data(),
-     lastModified: Date.now(),
+     
      
      
     }))
@@ -49,6 +49,7 @@ const [notes, setNotes] = useState([]);
   title:"Type the title here....",
   body: "",
   lastModified: Date.now(),
+  
 
         
         
@@ -63,7 +64,8 @@ const [notes, setNotes] = useState([]);
   firebase
   .firestore()
   .collection("notes")
-  .add({
+  .doc(newNote.id)
+  .set({
     id: newNote.id,
     title: "type the title here",
     body: "",
@@ -114,16 +116,16 @@ const [notes, setNotes] = useState([]);
     
 
     setNotes(updatedNotesArr);
-    // console.log(updatedNote);
-    // firebase
-    //   .firestore()
-    //   .collection("notes")
-    //   .doc(updatedNote.id)
-    //   .update({
-    //     title:updatedNote.title,
-    //     body: updatedNote.body,
-    //     lastModified:updatedNote.lastModified,
-    //   });
+    console.log(updatedNote);
+    firebase
+      .firestore()
+      .collection("notes")
+      .doc(updatedNote.id)
+      .update({
+        title:updatedNote.title,
+        body: updatedNote.body,
+        lastModified:updatedNote.lastModified,
+      });
     
   };
 
