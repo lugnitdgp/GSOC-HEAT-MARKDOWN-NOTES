@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import uuid from "react-uuid";
 import { auth } from "../firebase"
+import firebase from '../firebase';
 
 const AuthContext = React.createContext()
 
@@ -9,7 +10,12 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(
+    localStorage.currentUser ? JSON.parse(localStorage.currentUser): []
+  );
+  useEffect(() => {
+    localStorage.setItem("currentUser",JSON.stringify(currentUser));
+  },[currentUser]);
 
   
   
@@ -36,6 +42,15 @@ export function AuthProvider({ children }) {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user)
       setLoading(false)
+      firebase
+      .firestore()
+      .collection('users')
+      .doc(user.uid)
+      .set({
+        id: user.uid,
+        email: user.email,
+      })
+
     })
 
     return unsubscribe

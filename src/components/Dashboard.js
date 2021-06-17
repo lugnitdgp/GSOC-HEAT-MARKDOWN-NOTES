@@ -10,6 +10,8 @@ import { GrDocumentNotes } from "react-icons/gr";
 import firebase from '../firebase';
 
 
+
+
  function Dashboard() {
     
 
@@ -19,6 +21,8 @@ const [notes, setNotes] = useState([]);
   firebase
  .firestore()
   .collection('notes')
+  .where("Authorid", "==", currentUser.uid)
+  
   .onSnapshot(snapshot=> {
     const notes = snapshot.docs.map(doc=> ({
       id: doc.id,
@@ -39,7 +43,9 @@ const [notes, setNotes] = useState([]);
  
  const [activeNote, setActiveNote] = useState(false);
  
- 
+ const [currentUser, setCurrentUser] = useState(
+  localStorage.currentUser ? JSON.parse(localStorage.currentUser): []
+);
  
 
   const onAddNote = () => { 
@@ -49,6 +55,7 @@ const [notes, setNotes] = useState([]);
   title:"Type the title here....",
   body: "",
   lastModified: Date.now(),
+  Authorid:currentUser.uid,
   
 
         
@@ -56,6 +63,7 @@ const [notes, setNotes] = useState([]);
         
  
   };
+  console.log(currentUser)
   
   setNotes([newNote,... notes]);
   setActiveNote(newNote.id);
@@ -65,11 +73,14 @@ const [notes, setNotes] = useState([]);
   .firestore()
   .collection("notes")
   .doc(newNote.id)
+  // .where("Author.id", "==", currentUser.uid)
   .set({
     id: newNote.id,
     title: "type the title here",
     body: "",
     lastModified: Date.now(),
+    Authorid:currentUser.uid,
+    
 
   })
   setNotes([newNote,... notes]);
@@ -98,6 +109,7 @@ const [notes, setNotes] = useState([]);
     .collection("notes")
     .doc(noteId)
     .delete()
+
     
   };
 
@@ -121,10 +133,12 @@ const [notes, setNotes] = useState([]);
       .firestore()
       .collection("notes")
       .doc(updatedNote.id)
+      // .where("Author.id", "==", currentUser.uid)
       .update({
         title:updatedNote.title,
         body: updatedNote.body,
         lastModified:updatedNote.lastModified,
+        // Authorid:currentUser.id,
       });
     
   };

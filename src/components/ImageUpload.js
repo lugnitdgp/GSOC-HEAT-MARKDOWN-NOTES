@@ -40,7 +40,7 @@ const ImageUpload = () => {
              <input type="file" onChange={handleChange} />
              <button onClick={handleUpload}>Upload</button>
              <br/>
-            {url}
+            {url} 
         </div>
     );
 };
