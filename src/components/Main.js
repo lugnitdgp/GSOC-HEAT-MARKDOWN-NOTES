@@ -1,8 +1,11 @@
 import React from "react";
-import { FaPenAlt } from "react-icons/fa";
+import { FaBars, FaPenAlt } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { GrLogout} from 'react-icons/gr';
 import ImageUpload from "./ImageUpload";
+
+
+
 
 
 
@@ -24,18 +27,37 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
    
   };
 
-  if (!activeNote) return <div className="no-active-note">No Active Note</div>;
+  if (!activeNote) return <div className="no-active-note">
+    No Active Note
+    
+    </div>;
 
   
 
 
   return (
+    // <div className="app">
+    //    <input type="checkbox" id="check" />
+    //     <label for="check">
+    //     <FaBars id="btn"/>
+    //     </label>
     <div className="app-main">
-      
+    {/* <input type="checkbox" id="check" />
+    <label for="check">
+    <FaBars id="btn"/>
+    </label> */}
       <div className="app-main-header">
+      <input type="checkbox" id="check" />
+        <label for="check">
+        <FaBars id="btn"/>
+        </label>
       <h1>
         <IconContext.Provider value={{style:{fontSize:'40px', border:'5px'}}}>
-        <FaPenAlt/>  Edit Section
+        {/* <input type="checkbox" id="check" />
+        <label for="check">
+        <FaBars id="btn"/>
+        </label> */}
+       <FaPenAlt/> Edit Section
         </IconContext.Provider>  
       
       </h1>
@@ -62,6 +84,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
           </textarea>
           <ImageUpload/>
           
+          
          
           
           
@@ -75,6 +98,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
       </div>
       </div>
     </div>
+    // </div>
   );
 };
 

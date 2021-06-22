@@ -3,6 +3,8 @@ import { FaPlus } from 'react-icons/fa';
 import {FiPaperclip} from 'react-icons/fi'
 import {MdDelete} from 'react-icons/md';
 import {IconContext} from "react-icons";
+import {FaBars} from "react-icons/fa";
+import {MdCancel} from "react-icons/md";
 
 const Sidebar = ({
     notes,
@@ -17,11 +19,17 @@ const Sidebar = ({
     const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified);
   
     return (
+      <div className="sidebar">
+     <input type="checkbox" id="check" />
+     <label for="check">
+     <FaBars id="btn"/>
+     <MdCancel id="cancel"/>
+     </label>
       <div className="app-sidebar">
         <div className="app-sidebar-header">
           <h1><b/>NOTES</h1>
           <button onClick={onAddNote}>
-            <IconContext.Provider value={{style: {fontSize: '45px'}}}>
+            <IconContext.Provider value={{style: {fontSize: '50px'}}}>
             <FaPlus />
             </IconContext.Provider>
             </button>
@@ -54,6 +62,7 @@ const Sidebar = ({
             </div>
           ))}
         </div>
+      </div>
       </div>
     );
   };

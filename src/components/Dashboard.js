@@ -164,6 +164,7 @@ const [notes, setNotes] = useState([]);
   }
   return (
     <div className="Dashboard">
+      
       <Sidebar
         notes={notes}
         onAddNote={onAddNote}
