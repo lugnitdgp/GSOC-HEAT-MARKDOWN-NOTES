@@ -422,8 +422,8 @@ textarea {
 }
 .filehandle button{
   border: 3px;
-  font-size: 20px;
-  padding: 20px;
+  font-size: 30px;
+  padding: 10px;
   border-radius: 20px;
   background: rgba(94, 28, 248, 0.568);
   color: rgb(2, 2, 27);

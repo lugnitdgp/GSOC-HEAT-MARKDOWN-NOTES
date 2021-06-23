@@ -47,10 +47,7 @@ const ImageUpload = () => {
     console.log("image:",image);
     const[isCopied,setIsCopied]=useState(false)
 
-    // const codeSnippet =  
-    //    ![]({url});
     
-    //    JSON.stringify({url});  
 
     const onCopyText = () =>{
         setIsCopied(true);
@@ -67,9 +64,6 @@ const ImageUpload = () => {
              <input type="file" onChange={handleChange} />
              <button onClick={handleUpload}>Upload</button>
              <br/>
-             
-             {/* ![]({url}) */}
-             
                  <CopyToClipboard text={"![](" +url+ ")"} onCopy={onCopyText}>
                  <span>{isCopied ? <h3>"Copied!"</h3> : <IconContext.Provider value={{style:{fontSize:'50px',color: 'Purple'}}}><MdContentCopy/>
                  Copy to clipboard
