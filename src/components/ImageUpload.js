@@ -8,9 +8,8 @@ import {IconContext} from "react-icons";
 
 const ImageUpload = () => {
     const [image,setImage]= useState(null);
-    const [url,setUrl]= useState(""
-        // localStorage.url ? JSON.parse(localStorage.url): []
-    );
+    const [url,setUrl]= useState("");
+    // const [progress,setProgress]=useState();
     // useEffect(() => {
     //   localStorage.setItem("url",JSON.stringify(url));
     // },[url]);
@@ -27,7 +26,12 @@ const ImageUpload = () => {
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
         uploadTask.on(
             "state_changed",
-            snapshot => {},
+            snapshot => {
+                // const progress = Math.round(
+                // (snapshot.bytesTransferred / snapshot.totalBytes)* 100
+                // );
+                // setProgress(progress);
+            },
             error => {
             console.log(error);
             },
@@ -69,6 +73,9 @@ const ImageUpload = () => {
                  Copy to clipboard
                  </IconContext.Provider>}</span>
                  </CopyToClipboard>
+                 <br/>
+                 <br/>
+                 {/* <progress value={progress} max="100" /> */}
              
              
             </div>

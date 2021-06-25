@@ -8,6 +8,9 @@ import {  useHistory } from "react-router-dom";
 import { db } from "../firebase";
 import { GrDocumentNotes } from "react-icons/gr";
 import firebase from '../firebase';
+import {AuthContext} from "../contexts/AuthContext";
+import {Redirect} from "react-router-dom";
+
 
 
 
@@ -17,6 +20,7 @@ import firebase from '../firebase';
 
 
 const [notes, setNotes] = useState([]);
+
   useEffect(()=> {
   firebase
  .firestore()
@@ -142,6 +146,17 @@ const [notes, setNotes] = useState([]);
       });
     
   };
+  // const currentUser = useContext(AuthContext);
+  
+  // useEffect(() => {
+  //   if (!currentUser) {
+  //     setredirect("/");
+  //   }
+  // }, [currentUser]);
+  // if (redirect) {
+  //   return <Redirect to={redirect} />;
+  // }
+
 
   const getActiveNote = () => {
     

@@ -1,7 +1,18 @@
-import React, { useRef, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import "./App.css"
+// import {  auth } from "firebase/app"
+import { auth } from "../firebase"
+// import firebase from '../firebase'
+// import {provider} from "../firebase";
+// import {SignInWithGoogle} from "../firebase";
+import firebase from 'firebase/app';
+import "firebase/auth";
+// import Google from "..firebase/"
+import { AuthContext } from "../contexts/AuthContext"
+// import { Redirect } from "react-router-dom"
 
 
  function Login() {
@@ -11,8 +22,11 @@ import { Link, useHistory } from "react-router-dom"
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
-  
+  const currentUser = useContext(AuthContext)
+  // const [redirect,setredirect]= useState(null)
+  // const googleProvider = new firebase.auth.GoogleAuthProvider()
 
+  
   async function handleSubmit(e) {
     e.preventDefault()
 
@@ -27,7 +41,27 @@ import { Link, useHistory } from "react-router-dom"
 
     setLoading(false)
   }
+  const signInWithGoogle = () => {
+    const googleProvider = new firebase.auth.GoogleAuthProvider()
+    auth.signInWithPopup(googleProvider).then((res)=>{
+      console.log("signedinusing google");
+      console.log(res.user)
+    }).catch((error)=> {
+      console.log(error.message)
+    })
+    history.push("/");
+  }
 
+  // useEffect(()=>{
+  //   if (currentUser) {
+  //     console.log("redirectset");
+  //     setredirect("/")
+  //   }
+  // },[currentUser]);
+  // if (redirect){
+  //   <Redirect to = {redirect} />
+  // }
+  // console.log("identifier");
   return (
     <>
     
@@ -58,9 +92,21 @@ import { Link, useHistory } from "react-router-dom"
        <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+      <br/>
+      {/* <Button disabled={loading} className="w-100" type="submit">
+      <img src="https://img.icons8.com/ios-filled/50/000000/google-logo.png" alt="google icon"/>
+        <span> Continue with Google</span>
+      </Button> */}
+      {/* <Google/> */}
+      <div className="login-buttons">
+        <button className="login-provider-button" type="submit" onClick={signInWithGoogle} >
+        <img src="https://img.icons8.com/ios-filled/50/000000/google-logo.png" alt="google icon"/>
+        <span> Continue with Google</span>
+       </button>
+      </div>
       </div>
       </Container>
-    </>
+      </>
   )
 }
 export default Login;
