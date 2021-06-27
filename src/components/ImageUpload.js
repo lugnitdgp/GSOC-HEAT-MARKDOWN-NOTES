@@ -69,7 +69,7 @@ const ImageUpload = () => {
              <button onClick={handleUpload}>Upload</button>
              <br/>
                  <CopyToClipboard text={"![](" +url+ ")"} onCopy={onCopyText}>
-                 <span>{isCopied ? <h3>"Copied!"</h3> : <IconContext.Provider value={{style:{fontSize:'50px',color: 'Purple'}}}><MdContentCopy/>
+                 <span>{isCopied ? <h3>"Copied!"</h3> : <IconContext.Provider value={{style:{fontSize:'45px',color: 'Purple'}}}><MdContentCopy/>
                  Copy to clipboard
                  </IconContext.Provider>}</span>
                  </CopyToClipboard>

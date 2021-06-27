@@ -510,240 +510,535 @@ textarea {
 	margin-right: 0.5em;
 }
 
-@media only screen and (max-width: 400px){
+@media all  and (max-width: 500px){
 
+ 
   body,
-.Dashboard{
-  font-family:Helvetica;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  font-size: 8px;
-  background: url(https://wallpaperaccess.com/full/931263.jpg);
-}
+  .Dashboard{
+    font-family:Helvetica;
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+    font-size: 10px;
+    background-image: url(./vector.png);
+    background-position:bottom;
+    background-repeat:inherit;
+    background-size: 1000px;
+    
+    
+  }
+  
+  button {
+    background: none;
+    border: 20px;
+    margin: 20px;
+  
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    color: rgb(248, 250, 252);
+    font-weight: 900;
+    width: fit-content;
+    height: fit-content;
+    font-weight: 900;
+    padding-bottom: 40px;
+    padding-right: 30px;
+    padding-top: 30px;
+    
+    
+    
+    
+    
+    
+  }
+  button:hover {
+    color: rgb(1, 8, 26);
+  }
+  
+  .Dashboard{
+    display: flex;
+    
+  }
+  
+  /* SIDEBAR STYLES */
+  .sidebar{
+    display: flex;
+    /* width: 30%; */
+    height: 100vh;
+    
+    
+    
+  
+  }
+  #check{
+    display: none;
+  }
+  label #btn,label #cancel{
+    position:absolute;
+    cursor: pointer;
+  }
+  label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: rgba(64, 38, 179, 0.925);
+    
+  
+  }
+  label #cancel{
+    z-index:1111;
+    left: -500px;
+    top:10px;
+    
+    right: 0%;
+    font-size: 25px;
+    color: aliceblue;
+    
+  }
+  
+  
+  .app-sidebar {
+    position: fixed;
+    left:-100%;
+    width: 100%;
+    height: 100vh;
+    border-right: 1px solid rgba(11, 61, 126, 0.925);
+    font-size: 10px;
+    
+  }
+  #check:checked ~ .app-sidebar{
+    left:0px;
+    width: 425px;
+    height: 100%;
+    /* width: 30%; */
+  }
+  #check:checked ~ label #btn{
+    left:-500px;
+    opacity:0;
+    pointer-events: none;
+    display: none;
+  }
+  #check:checked ~ label #cancel{
+    left: 0px;
+    top:10px;
+    font-size: 30px;
+    right: 10%;
+    padding-left: 10px;
+    
+    
+  }
+  /* #check:checked ~ .app-main{
+    width: 70%;
+    height: 100vh;
+    display: flex;
+  } */
+  
+  
+  .app-sidebar-header {
+    display:flex;
+    justify-content:space-around;
+    background-color: rgba(63, 19, 165, 0.925);
+    font-size: 10px;
+    color: rgb(241, 245, 248);
+    font-weight: bold;
+    border: 5px;
+    border-radius: 10px;
+    margin: 2px;
+    
+    
+  }
+  .app-sidebar-header h1 {
+    margin: 1px;
+    font-size: 40px;
+    font-weight: bolder;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+  }
+  
+  .app-sidebar-notes {
+    height: calc(100vh - 78px);
+    overflow-y: scroll;
+    background-color:white;
+    border: blue;
+    padding: 5px;
+    
+    
+    
+    
+  }
+  .app-sidebar-note {
+    padding: 20px;
+    cursor: pointer;
+    border: 10px ;
+    border-radius: 30px;
+    border-style:initial;
+    border-color: rgba(44, 44, 44, 0.938);
+    
+    margin: 20px;
+    background-color: rgb(236, 234, 234);
+    
+    
+  
+    
+  }
+  .sidebar-note-title {
+    display: flex;
+    justify-content:space-between;
+    font-size: 22px;
+    color: rgba(2, 0, 14, 0.925);
+    flex-direction:row;
+    
+    
+    
+  }
+  .app-sidebar-note button {
+    color: rgb(31, 10, 14);
+    padding: 25px;
+    padding-top: 5px;
+    
+    
+    
+  }
+  .app-sidebar-note p {
+    margin: 10px 0;
+    color: rgb(1, 6, 19);
+    border-bottom: 20px;
+  }
+  .app-sidebar-note small {
+    display: block;
+    color: rgb(0, 2, 12);
+    border-bottom: 20px;
+  }
+  
+  .app-sidebar-note:hover {
+    background: rgb(227, 215, 241);
+    transition: .4s;
+    /* transform: scale(1.05); */
+  }
+  .app-sidebar-note.active {
+    background: rgba(94, 28, 248, 0.568);
+    color: rgb(248, 248, 250);
+    font-weight: bolder;
+  }
+  .app-sidebar-note.active small {
+  
+    color: rgb(239, 239, 245);
+    font-weight: bolder;
+  }
+  .app-sidebar-note.active title{
+  
+    color: rgb(239, 239, 245);
+    font-weight: bolder;
+  }
+  
+  /* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+  
+  .app{
+    display: flex;
+    height: 100vh;
+  }
+  
+  #check{
+    display: none;
+  }
+  label #btn{
+    position:absolute;
+    cursor: pointer;
+  }
+  label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: black;
+  
+    
+  }
+  .app-main {
+    /* display:inline-block; */
+    /* width:70%; */
+    /* height:100vh; */
+    /* float: right; */
+    width:100%;
+    height: 100vh;
+   
+  }
+  #check:checked ~ .app-main{
+    width:70%;
+    height:100vh;
+    display: flex;
+  }
+  
+   
+    
+  
+  .app-main-header {
+    display:flex;
+    justify-content:space-between;
+    padding: 20px;
+    background-color:rgb(243, 231, 250);
+    font-size: 1px;
+    height: 10vh;
+    border: 5px;
+    border-radius: 10px;
+    }
+    
+   .app-sidebar-header #check1:checked ~ .app-main{
+      width: 70%;
+      height: 100vh;
+  
+  }
+  .app-main-header #check{
+    display: none;
+  }
+  .app-main-header label #btn{
+    position:absolute;
+    cursor: pointer;
+  }
+  .app-main-header label #btn{
+    left: 40px;
+    top: 24px;
+    font-size: 35px;
+    color:rgba(64, 38, 179, 0.925) ;}
+    /* .app-main-header label{
+      margin: 0;
+      font-size: 45px;
+      color:rgba(64, 38, 179, 0.925) ;
+      font-weight: bold;
+      display: flex;
+    } */
+  .app-main-header #check:checked ~ label #btn{
+      
+      opacity: 0;
+      display: none;
+    }
+  .app-main-header #check:checked ~ .wrapper{
+      height: 100%;
+      width: 70%;
+      display: flex;
+    }
+  .app-main-header #check:checked ~ .app-main-note-edit,.app-main-note-preview{
+      height:100%;
+      width: 60%;
+  
+  } 
+  .app-main-header h1 {
+    margin: 0px;
+    font-size: 25px;
+    color:rgba(64, 38, 179, 0.925) ;
+    font-weight: bold;
+    padding:10px;
+    
+  } 
+  
+  
+  
+  .app-main-header button {
+    padding: 10px;
+  }
+  .wrapper{
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+  .app-main-note-edit,
+  .app-main-note-preview {
+    
+    height:100%;
+    width: 100%;
+    /* width: 100%; */
+    /* width: 60%; */
+    margin: 0 auto;
+    
+    
+    
+  }
+  
+  .no-active-note {
+    width: 100%;
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+    font-size: 55px;
+    color: rgb(0, 0, 0);
+  }
+  
+  
+  /* Editing */
+  .app-main-note-edit {
+    padding: 25px;
+    background-color: white;
+    height: 100%;
+    /* width: 100%; */
+    width: 100%;
+    display: inline-block;
+    
+   
+    
+    
+  }
+  
+  .app-main-note-edit input,
+  textarea {
+    display: block;
+    margin-bottom: 20px;
+    
+    
+    padding: 10px;
+    resize: none;
+    font-size: 10px;
+    font-family: inherit;
+    background-color:white;
+    
+    color: black;
+    border: 3px;
+    font-weight: 900;
+    border-radius: 15px;
+    border-style: none;
+    
+    
+  }
+  .app-main-note-edit input {
+    width: 100%;
+    height: 48px;
+    font-size: .5rem;
+    border: 3px;
+    border-radius: 15px;
+    border-style: none;
+    color:black ;
+    
+    
+  }
+  .app-main-note-edit textarea{
+    height: 450px;
+    width: 100%;
+    
+    float: left;
+  
+  }
+  .app-main-note-edit input {
+    width: 100%;
+    height: 48px;
+    font-size: 1rem;
+    border: 3px;
+    border-radius: 15px;
+    border-style: none;
+    color:black ;
+  }
+  .app-main-note-edit button{
+    border: 20px;
+    background-color: rgb(226, 195, 195);
+  }
+  .filehandle{
+    height: 100px ;
+    width: 100%;
+    
+  }
+  .filehandle h3{
+    font-size: 20px;
+    
+  }
+  .filehandle input{
+    width: 100%;
+    height: 50%;
+    font-size: 15px;
+    border: 3px;
+    border-radius: 20px;
+    border-color: black;
+    float: right;
+  }
+  .filehandle button{
+    border: 3px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 2px;
+    background: rgba(94, 28, 248, 0.568);
+    color: rgb(2, 2, 27);
+    display:inline-block;
+    
+  }
+  
+  
+  
+  
+  /* Preview */
+  .app-main-note-preview {
+    height: 100%;
+    
+    width: 100%;
+    border-top: 1px solid ;
+    color: rgba(73, 60, 146, 0.925);
+    border: 3px;
+    border-radius: 1px;
+    background-color: whitesmoke;
+    border-style:none;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    display: block;
+    
+  
+    
+    
+  }
+  
+  .preview-title {
+    /* padding: 25px 25px 25px 25px; */
+    margin: 0px;
+    width: 100%;
+    height: 10%;
+    font-size: 1rem;
+    
+  
+    
+    
+    
+    
+  }
+  
+  .markdown-preview {
+    /* padding: 0 25px 25px 25px; */
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: 800;
+    height: 100%;
+    width: 100%;
+    /* float:inline-end; */
+    
+    
+  }
+  .w-100-btn {
+    background-color: black !important;
+  
+  
+  }
+  .login-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .login-provider-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25em;
+    height: 3em;
+    border: 1px solid #021052;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    background-color: #ffffff;
+    color: #1633b1;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+  .login-provider-button:hover{
+    transform: scale(1.05);
+  }
+  .login-provider-button img{
+    width: 1.6em;
+    height: 1.6em;
+    margin-right: 0.5em;
+  }
 
-button {
-  background: none;
-  
-  
-  
-  cursor: pointer;
-  color: rgb(248, 250, 252);
-  
-  width: fit-content;
-  height: fit-content;
-  
-  
-}
-button:hover {
-  color: rgb(1, 8, 26);
-}
 
-.Dashboard{
-  display: flex;
-  
-}
-
-/* SIDEBAR STYLES */
-
-.app-sidebar {
-  width: 30%;
-  height: 100vh;
-  border-right: 1px solid rgba(11, 61, 126, 0.925);
-}
-
-.app-sidebar-header {
-  display:block;
-  
-  background-color: rgba(11, 61, 126, 0.925);
-  
-  color: rgb(255, 253, 253);
-  
-  
-  
-  
-}
-.app-sidebar-header h1 {
- 
-  font-size: 20px;
-  font-weight: bolder;
-  padding: 15px;
-  border:5px;
-}
-
-.app-sidebar-notes {
-  height: calc(100vh - 78px);
-  overflow-y: scroll;
-  background-color:rgb(212, 234, 248);
-  border: blue;
-  padding: 25px;
-  
-  
-}
-.app-sidebar-note {
-  padding: 20px;
-  cursor: pointer;
-  border: 5px;
-  border-radius: 25px;
-  
-  
-
-  
-}
-.sidebar-note-title {
-  display: flex;
-  justify-content:space-between;
-  font-size: 15px;
-  color: rgba(11, 61, 126, 0.925);
-  
-  
-  
-}
-.app-sidebar-note button {
-  color: rgb(31, 10, 14);
-  padding: 25px;
-  padding-top: 5px;
-  
-  
-}
-.app-sidebar-note p {
-  margin: 10px 0;
-  color: rgb(8, 22, 58);
-  border-bottom: 20px;
-}
-.app-sidebar-note small {
-  display: block;
-  color: rgb(3, 9, 65);
-  border-bottom: 20px;
-}
-
-.app-sidebar-note:hover {
-  background: rgb(147, 205, 252);
-}
-.app-sidebar-note.active,
-.app-sidebar-note.active small {
-  background: rgb(166, 211, 248);
-  color: rgb(8, 12, 17);
-  font-weight: bolder;
-}
-
-/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
-
-.app-main {
-  width: 70%;
-  height: 100vh;
-}
-.app-main-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color:rgb(176, 217, 243);
-  font-size: 5px;
-  height: 10vh;
-  border: 5px;
-  border-radius: 10px;
-  
-  
-  
-  
-}
-.app-main-header h1 {
-  margin: 0;
-  font-size: 20px;
-  color:rgba(11, 61, 126, 0.925) ;
-  font-weight: bold;
-} 
-
-
-
-.app-main-header button {
-  padding: 5px;
-}
-.app-main-note-edit,
-.app-main-note-preview {
-  height: 47vh;
-  
-  
-}
-
-.no-active-note {
-  width: 70%;
-  height: 100vh;
-  line-height: 100vh;
-  text-align: center;
-  font-size: 10px;
-  color: rgb(153, 153, 153);
-}
-
-/* Editing */
-.app-main-note-edit {
-  padding: 25px;
-  background-color:rgb(228, 243, 252);
- 
-  
-  
-}
-
-.app-main-note-edit input,
-textarea {
-  display: block;
-  
-  margin-bottom: 20px;
-  width: 100%;
-  height: calc(48vh - 130px);
-  padding: 10px;
-  resize: none;
-  font-size: 10px;
-  font-family: inherit;
-  background-color:rgb(207, 229, 243);
-  color: rgba(33, 73, 126, 0.925);
-  border: 1px;
-  font-weight: 900;
-  border-radius: 15px;
-  
-}
-.app-main-note-edit input {
-  height: 48px;
-  font-size: 1rem;
-  border: 1px;
-  border-radius: 15px;
-  
-}
-
-/* Preview */
-.app-main-note-preview {
-  border-top: 1px solid ;
-  color: rgba(11, 61, 126, 0.925);
-  border: 1px;
-  border-radius: 15px;
-  
-  
-  
-  
-  overflow-y: scroll;
-  background-color: rgb(220, 234, 243);
-
-  
-  
-}
-
-.preview-title {
-  padding: 25px 25px 0 25px;
-  margin: 0;
-  border: 1px;
-  border-radius: 15px;
-  
-}
-
-.markdown-preview {
-  padding: 0 25px 25px 25px;
-  font-size: 1rem;
-  line-height: 2rem;
-  border: 1px;
-  border-radius: 15px;
-  
-  
-}
 
 
 

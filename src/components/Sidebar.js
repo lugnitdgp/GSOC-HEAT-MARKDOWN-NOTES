@@ -29,7 +29,7 @@ const Sidebar = ({
         <div className="app-sidebar-header">
           <h1><b/>NOTES</h1>
           <button onClick={onAddNote}>
-            <IconContext.Provider value={{style: {fontSize: '50px'}}}>
+            <IconContext.Provider value={{style: {fontSize: '45px'}}}>
             <FaPlus />
             </IconContext.Provider>
             </button>
@@ -42,16 +42,16 @@ const Sidebar = ({
             >
               <div className="sidebar-note-title">
                 <IconContext.Provider value={{style:{fontSize:'30px'}}}>
-                <FiPaperclip/>  <strong>{title && title.substr(0,20)}</strong>
+                <FiPaperclip/>  <strong>{title && title.substr(0,15)}</strong>
                 </IconContext.Provider>
                 <button onClick={(e) => onDeleteNote(id)}>
-                  <IconContext.Provider value={{style:{fontSize: '42px'}}}>
+                  <IconContext.Provider value={{style:{fontSize: '38px'}}}>
                   <MdDelete/>
                   </IconContext.Provider>
                   </button>
               </div>
   
-              <p>{body && body.substr(0, 50) + "..."}</p>
+              <p>{body && body.substr(0, 10) + "..."}</p>
               <small className="note-meta">
                 Last Modified{" "}
                 {new Date(lastModified).toLocaleDateString("en-GB", {

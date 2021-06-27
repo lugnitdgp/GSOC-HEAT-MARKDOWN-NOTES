@@ -52,7 +52,7 @@ const Main = ({ activeNote, onUpdateNote, handleLogout }) => {
         <FaBars id="btn"/>
         </label>
       <h1>
-        <IconContext.Provider value={{style:{fontSize:'40px', border:'5px'}}}>
+        <IconContext.Provider value={{style:{fontSize:'30px', border:'5px'}}}>
         {/* <input type="checkbox" id="check" />
         <label for="check">
         <FaBars id="btn"/>
