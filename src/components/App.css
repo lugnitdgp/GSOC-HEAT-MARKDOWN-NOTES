@@ -389,7 +389,7 @@ textarea {
 .app-main-note-edit textarea{
   height: 550px;
   width: 100%;
-  
+  font-size: 1.3rem;
   float: left;
 
 }
@@ -493,7 +493,7 @@ textarea {
 	justify-content: center;
 	width: 25em;
 	height: 3em;
-	border: 1px solid #021052;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 1em;
 	background-color: #ffffff;

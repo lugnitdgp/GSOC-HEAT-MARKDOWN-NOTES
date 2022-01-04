@@ -12,7 +12,7 @@ import firebase from 'firebase/app';
 import "firebase/auth";
 // import Google from "..firebase/"
 import { AuthContext } from "../contexts/AuthContext"
-// import { Redirect } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 
  function Login() {
@@ -23,7 +23,7 @@ import { AuthContext } from "../contexts/AuthContext"
   const [loading, setLoading] = useState(false)
   const history = useHistory()
   const currentUser = useContext(AuthContext)
-  // const [redirect,setredirect]= useState(null)
+  const [redirect,setredirect]= useState(null)
   // const googleProvider = new firebase.auth.GoogleAuthProvider()
 
   
@@ -41,7 +41,7 @@ import { AuthContext } from "../contexts/AuthContext"
 
     setLoading(false)
   }
-  const signInWithGoogle = () => {
+  const onSubmit = () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider()
     auth.signInWithPopup(googleProvider).then((res)=>{
       console.log("signedinusing google");
@@ -49,19 +49,19 @@ import { AuthContext } from "../contexts/AuthContext"
     }).catch((error)=> {
       console.log(error.message)
     })
-    history.push("/");
+    history.push("/")
   }
 
-  // useEffect(()=>{
-  //   if (currentUser) {
-  //     console.log("redirectset");
-  //     setredirect("/")
-  //   }
-  // },[currentUser]);
-  // if (redirect){
-  //   <Redirect to = {redirect} />
-  // }
-  // console.log("identifier");
+  useEffect(()=>{
+    if (currentUser) {
+      console.log("redirectset");
+      setredirect("/")
+    }
+  },[currentUser]);
+  if (redirect){
+     <Redirect to = {redirect} />
+  }
+  console.log("identifier");
   return (
     <>
     
@@ -99,7 +99,7 @@ import { AuthContext } from "../contexts/AuthContext"
       </Button> */}
       {/* <Google/> */}
       <div className="login-buttons">
-        <button className="login-provider-button" type="submit" onClick={signInWithGoogle} >
+        <button className="login-provider-button" type="submit" onClick={onSubmit} >
         <img src="https://img.icons8.com/ios-filled/50/000000/google-logo.png" alt="google icon"/>
         <span> Continue with Google</span>
        </button>
