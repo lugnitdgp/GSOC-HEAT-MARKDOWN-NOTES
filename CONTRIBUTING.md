@@ -9,7 +9,7 @@ have a reference to an issue.**
 ### Making your your first pull request
 
 - First, fork this repository
-- Clone it using ``` git clone https://github.com/lugnitdgp/GSOC-HEAT-MARKDOWN-NOTES.git ```
+- Clone it using ``` git clone https://github.com/<your_github_username>/GSOC-HEAT-MARKDOWN-NOTES.git ```
 - It is always recommended to make your changes in a new branch rather than master.
   So create a new branch using ``` git branch mybug ```
 - Checkout into your new branch using ``` git checkout mybug ```
